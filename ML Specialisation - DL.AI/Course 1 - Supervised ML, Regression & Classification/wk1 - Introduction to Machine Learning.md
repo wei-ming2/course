@@ -110,4 +110,7 @@ b=b-\alpha\frac{1}{m}\sum_{i=1}^m(f_{w,b}(x^{(i)})-y^{(i)})\end{align*}$$
 - where $f_{w,b}(x^{(i)})$ is the linear regression model: $$f_{w,b}(x^{(i)})=wx^{(i)}+b$$
 
 - **Squared error cost function**: convex function (bowl shape [[#2.3. Visualisation of Cost Function]])
-	- Only 1 local minimum, also the global minimum $\to$ always converge to global minimum ($\alpha$ chosen properly) 
+	- Only 1 local minimum, also the global minimum $\to$ always converge to global minimum ($\alpha$ chosen properly)
+
+#### 3.5. Running Gradient Descent
+- **Batch** gradient descent: each step of gradient descent uses *all the training examples*
