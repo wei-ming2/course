@@ -67,7 +67,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "squared",
+                "query": "gradient descent",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,6 +86,27 @@
               "state": {},
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
+            }
+          }
+        ]
+      },
+      {
+        "id": "bbc410853dc2ed6c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "257fa5221d3f63ef",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/wk3 - Classification.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of wk3 - Classification"
             }
           }
         ]
@@ -110,10 +131,10 @@
               "type": "backlink",
               "state": {
                 "file": "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/wk3 - Classification.md",
-                "collapseAll": false,
-                "extraContext": false,
+                "collapseAll": true,
+                "extraContext": true,
                 "sortOrder": "alphabetical",
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
@@ -165,20 +186,17 @@
             }
           },
           {
-            "id": "257fa5221d3f63ef",
+            "id": "91c5dbbd5ef75a89",
             "type": "leaf",
             "state": {
-              "type": "outline",
-              "state": {
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline"
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -199,21 +217,25 @@
   },
   "active": "cee34396ed9109ad",
   "lastOpenFiles": [
-    "README.md",
     "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/wk3 - Classification.md",
-    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-10 at 9.47.54 AM.png",
-    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-10 at 9.03.11 AM.png",
+    "Untitled.canvas",
+    "2026-09-14.md",
+    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/Untitled.base",
     "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/wk1 - Introduction to Machine Learning.md",
-    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/Untitled.md",
-    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-08 at 3.29.19 PM.png",
-    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-08 at 3.30.31 PM.png",
-    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-08 at 3.27.55 PM.png",
     "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/wk2 - Regression with multiple input variables.md",
-    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-04 at 11.05.18 AM.png",
-    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-04 at 11.01.20 AM.png",
-    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-04 at 10.18.15 AM.png",
-    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-04 at 10.05.26 AM.png",
-    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-03 at 11.29.57 AM.png",
+    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-14 at 9.39.43 AM.png",
+    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-14 at 9.38.01 AM.png",
+    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-11 at 11.02.12 AM.png",
+    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-11 at 11.01.54 AM.png",
+    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/Untitled.md",
+    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/Untitled 1.md",
+    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-11 at 10.57.26 AM.png",
+    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-11 at 10.56.53 AM.png",
+    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-11 at 10.56.13 AM.png",
+    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-11 at 10.49.47 AM.png",
+    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-11 at 10.47.06 AM.png",
+    "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image/Screenshot 2026-09-11 at 10.41.32 AM.png",
+    "README.md",
     "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification",
     "ML Specialisation - DL.AI/Course 1 - Supervised ML, Regression & Classification/image",
     "course.base.md",

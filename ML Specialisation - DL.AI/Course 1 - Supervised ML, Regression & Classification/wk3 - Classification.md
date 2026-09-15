@@ -61,3 +61,47 @@
 | Linear Regression                              | Logistic Regression                                               |
 | ---------------------------------------------- | ----------------------------------------------------------------- |
 | $f_{\vec{w},b}(\vec{x})=\vec{w}\cdot\vec{x}+b$ | $f_{\vec{w},b}(\vec{x})=\frac{1}{1+e^{(-\vec{w}\cdot\vec{x}+b)}}$ |
+
+### 3. The Problem of Overfitting
+
+| Type                               | Graph                                              | Remark                                                                                                         |
+| ---------------------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **Under-fitting**                  | ![[Screenshot 2026-09-11 at 10.41.32 AM.png\|300]] | Model does not fit the training data well (high bias)<br><br>(Price eventually flattens out as size increases) |
+| **Generalisation**<br>(just right) | ![[Screenshot 2026-09-11 at 10.47.06 AM.png\|300]] | Fits the training set pretty well (and makes sense)                                                            |
+| **Overfitting**                    | ![[Screenshot 2026-09-11 at 10.49.47 AM.png\|300]] | Fits the training set extremely well, cost may equal 0 (high variance)<br><br>(But do not make sense)          |
+- **Linear regression** & **Classification**
+
+| Under-fitting                                 | Generalisation                                | Overfitting                                   |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| ![[Screenshot 2026-09-11 at 10.56.13 AM.png]] | ![[Screenshot 2026-09-11 at 10.56.53 AM.png]] | ![[Screenshot 2026-09-11 at 10.57.26 AM.png]] |
+| Does not capture the general trend            | Seems about right                             | Overly complicated with no trend              |
+
+
+#### 3.1. Addressing Overfitting
+1. **Collect more training examples**: such that the model has less room for wiggly pattern <br> ![[Screenshot 2026-09-11 at 11.01.54 AM.png|300]]![[Screenshot 2026-09-11 at 11.02.12 AM.png|300]]
+
+2. **Reduce the number of features**: reduce complexity of polynomial features
+	- Especially when the training data is few
+
+3. **Regularisation**: encouraging the learning algorithm to shrink the parameters without demanding parameter is set to 0 $$f(x)=28x-385x^2+39x^3-174x^4+100$$
+	- Essentially setting some of the feature to 0, $-174x^4\to 0$: $w_j$ values end up being smaller $$f(x)=13x-0.23x^2+0.000014x^3-0.0001x^4+10$$
+	- **TLDR**: keeping the features whilst preventing it from having an overly large effect, which causes overfitting
+
+#### 3.2. Cost Function with Regularisation
+- **Intuition**: attempt to simplify the polynomial by getting the higher power to approach 0, such that the effect of it is essentially none 
+
+- **Cost function with regularisation**: $$J(\vec{w},b)=\frac{1}{2m}\sum_{i=1}^m(f_{\vec{w},b}(\vec{x}^{(i)})-y^{(i)})^2+\frac{\lambda}{2m}\sum_{j=1}^nw_j^2$$
+	- $\lambda$: regularisation parameter, $>0$
+	- **New cost function**: MSE (fits the data) + regularisation term (applies penalty to keep $w_j$ from growing large)
+
+| Lambda                                  | Plot                                              | Idea                                                                                                                                                                                                |
+| --------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| $\lambda=0$                             | ![[Screenshot 2026-09-14 at 9.38.01 AM.png\|300]] | Effect of regularisation term is 0.<br><br>Model minimises error at all cost (thus overfit)                                                                                                         |
+| $\lambda=10^{10}$ <br>(extremely large) | ![[Screenshot 2026-09-14 at 9.39.43 AM.png\|300]] | Model attempts to reduce the *regularisation term*; all $w_j\to0$ (thus under-fit)<br>$$\begin{aligned}f_{\vec{w},b}(\vec{x})&=w_1x+w_2x^2+w_3x^3+w_4x^4+b\\&\approx 0+0+0+0+b \\&=b\end{aligned}$$ |
+
+#### 3.3. Gradient Descent with Regularisation
+- **Gradient Descent Recap**: ![[wk1 - Introduction to Machine Learning#3.1. Implementing Gradient Descent]]
+- **Regularised linear regression**: very similar except the derivative with respective to $w_j$ has the *regularisation term* $$\frac{\partial}{\partial w_j}J(\vec{w},b)=\frac{1}{m}\sum_{i=1}^m(f_{\vec{w},b}(\vec{x}^{(i)})-y^{9i)})x_j^{(i)}+\frac{\lambda}{m}w_j$$
+	- no change to update of $b$ $(\frac{\partial}{\partial b})$
+
+- **Regularised logistic regression**: same formula as linear regression, except $f_{\vec{w},b}$ is different
