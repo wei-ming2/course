@@ -183,4 +183,49 @@ def sequential(x):
 	return f_x
 ```
 
+### 3. Vectorisation
+- **Vectorisation**: allows for effective implementation (scaling) of NN (using matrix multiplication)
+	- Allowing the CPU/GPU to perform parallel computing
 
+```python
+X = np.array([[200, 17]]) # convert to 2d array
+W = np.array([[1, -3, 5], # unchanged
+			 [-2, 4, -6]])
+B = np.array([[-1, 1, 2]]) # 1x3 2d array
+```
+> 1D array converted to 2D
+
+```python
+def dense(A_in, W, B):
+	Z = np.matmul(A_in, W) + B
+	A_out = g(Z)
+	return A_out
+```
+> Skip the looping code as per [[#2.2. Forward Propagation]]
+
+#### 3.1. Matrix Multiplication
+- **Dot product**: array multiplication 1 at a time $$\begin{align*}z&= 
+  \begin{bmatrix}1 \\ 2\end{bmatrix}\cdot 
+  \begin{bmatrix}3 \\ 4\end{bmatrix} \\
+   &=(1\times 3)+(2\times 4) \\
+   &=11\end{align*}$$
+
+- **Matrix multiplication**: essentially combines multiple array to a matrix, which are then simultaneously computed $$\begin{align*}z&= 
+  \begin{bmatrix}1 & 2\end{bmatrix} 
+  \begin{bmatrix}3 & 5 \\ 4 & 6\end{bmatrix} \\
+   &=\begin{bmatrix}1(3) +2(4) \\ 1(5)+2(6)\end{bmatrix} \\
+   &=\begin{bmatrix}11 & 17\end{bmatrix}\end{align*}$$
+	- **Conversion**: $z=\vec{a}\cdot\vec{w}\leftrightarrow\vec{a}^T\vec{w}$
+
+- **Transpose syntax**: 
+```python
+A = np.array([[1, -1, 0.1],
+			  [2, -2, 0.2]])
+AT = A.T # transpose
+```
+
+- **Matrix multiplication syntax**: 
+```python
+Z = np.matmul(AT, W)
+Z = AT @ W # alternate representation
+```
