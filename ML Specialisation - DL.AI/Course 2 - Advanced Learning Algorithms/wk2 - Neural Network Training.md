@@ -128,5 +128,58 @@ f_x = tf.nn.softmax(logits)
 
 - **Multi-label Classification**: for each set of $x$ input, there can be a set of $y$ outputs (or labels)
 
+#### 3.3. Code Example
+```python
+model = Sequential(
+	[
+		Dense(2, activation='relu', name='L1'),
+		Dense(4, activation='linear', name='L2')
+	]
+)
+```
+- Simple 2-layer network for multi-class classification: <br>![[Screenshot 2026-10-12 at 10.47.11 AM.png|300]]
 
+- **How the model works**: <br>![[Screenshot 2026-10-12 at 10.52.30 AM.png|500]]
 
+| Neuron 0 | Neuron 1 | Classification |
+| -------- | -------- | -------------- |
+| Inactive | Inactive | c0             |
+| Active   | Inactive | c2             |
+| Inactive | Active   | c1             |
+| Active   | Active   | c3             |
+
+### 4. Advanced NN Concepts
+#### 4.1. Advanced Optimisation
+- **Intuition**: *gradient descent* tend to slowly converge to the minimum in the same direction for a bit
+	- How can we optimise the algorithm for greater training speed?
+
+- **Adaptive Moment Estimation (Adam)**: automatically adjusts the learning rate ($\alpha$)<br>![[Screenshot 2026-10-12 at 2.23.20 PM.png|300]]![[Screenshot 2026-10-12 at 2.26.39 PM.png|300]]
+	- If $w_j$ (or $b$) keeps moving in same direction: increase $\alpha_j$
+	- If $w_j$ (or $b$) keeps oscillating: reduce $\alpha_j$
+
+```python
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3), loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True))
+```
+
+#### 4.2. Additional Layer Types
+- **Convolutional layer**: each neuron only looks at some parts of the previous layer's output (Dense layer looks at every previous neuron) <br>![[Screenshot 2026-10-12 at 2.33.05 PM.png|200]]
+	- **Benefits**: 
+		1. Faster computation
+		2. Need less training data / less prone to overfitting
+
+### 5. Back Propagation
+#### 5.1. Derivative
+- Eg: cost function $J(w)=w^2$
+	- Derivative is: $2w$ (meaning $w^2$ is changing at a rate of $2w$)
+
+- `sympy` package:
+```python
+J, w = sympy.symbols("J,w")
+J = w**3
+dJ_dw = sympy.diff(J, w) # 3w^2
+dJ_dw.subs([(w, 2)]) # substitute w as 2 = 12
+```
+
+#### 5.2. Computation Graph
+- For a neuron, there is an input ($\vec{x}$) and an output ($a$)
+	- If $a=wx+b$, where $w=2, b=8, x=-2, y=2$: computation graph essentially breaks down a series of working (to get to $J$) into individual step <br>![[Screenshot 2026-10-15 at 3.12.01 PM.png|500]]
