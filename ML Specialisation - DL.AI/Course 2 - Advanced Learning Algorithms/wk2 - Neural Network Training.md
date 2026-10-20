@@ -182,4 +182,29 @@ dJ_dw.subs([(w, 2)]) # substitute w as 2 = 12
 
 #### 5.2. Computation Graph
 - For a neuron, there is an input ($\vec{x}$) and an output ($a$)
-	- If $a=wx+b$, where $w=2, b=8, x=-2, y=2$: computation graph essentially breaks down a series of working (to get to $J$) into individual step <br>![[Screenshot 2026-10-15 at 3.12.01 PM.png|500]]
+	- If $a=wx+b$, where $w=2, b=8, x=-2, y=2$: computation graph essentially breaks down a series of working (to get to $J$) into individual step <br>![[Screenshot 2026-10-19 at 9.00.27 AM.png|700]]
+		- Forward propagation: left to right computation
+		- Back propagation: right to left
+
+##### 5.2.1. Back Propagation
+- Let's say that: $d$ increases by $\varepsilon$, $J$ increases by $2\varepsilon$ $$\begin{align*}J_{\text{new}}&=\frac{1}{2}(2+\varepsilon)^2 \\
+  &=\frac{1}{2}(4+4\varepsilon+\varepsilon^2) \\
+  \Delta J&=2\varepsilon+\frac{1}{2}\varepsilon^2 \\
+  &\approx 2\varepsilon \hspace{0.2cm}(\text{if }\varepsilon\text{ is small})\end{align*}$$
+
+- Connecting back to [[#5.2. Computation Graph]]: $$\begin{align*}\frac{\partial J}{\partial a}&=\frac{\partial J}{\partial d}\frac{\partial d}{\partial a} \\
+  &=d\cdot 1 \\
+  &=2\end{align*}$$
+	- Partial derivative of $J=\frac{1}{2}d^2$: $$\frac{\partial J}{\partial d}=d$$
+	- Partial derivative of $d=a-y$: $$\frac{\partial d}{\partial a}=1$$
+
+- Similarly (using chain rule for the previous partial derivatives): $$\begin{align*}\frac{\partial J}{\partial b}&=\frac{\partial J}{\partial a}\frac{\partial a}{\partial b} \\
+  &=2\cdot 1 \\
+  &= 2\end{align*}$$
+- and:  $$\begin{align*}\frac{\partial J}{\partial c}&=\frac{\partial J}{\partial a}\frac{\partial a}{\partial c} \\
+  &= 2\cdot 1 \\
+  &= 2\end{align*}$$
+- finally: $$\begin{align*}\frac{\partial J}{\partial w}&=\frac{\partial J}{\partial c}\frac{\partial c}{\partial w} \\
+  &= 2\cdot x \\
+  &= -4\end{align*}$$
+	- **Back propagation**: from $J$, a series of calculation is done to backwards (change wrt to $d,a,b,c$) to find $w$; to get $\frac{\partial J}{\partial w}$ (how much $J$ change wrt $w$)

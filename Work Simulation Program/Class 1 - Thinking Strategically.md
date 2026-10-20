@@ -23,6 +23,11 @@
 
 - **Background**: 60% of handset users in India own a feature phone (vs ~30% for APAC) <br>![[Screenshot 2026-10-16 at 12.07.59 PM.png|500]]
 
+- **Benchmarking**: 
+	- **Vs. current competitors**: cost basis or user acquisition funnel
+	- **Vs. historical**: growth rate this year vs previous years
+	- **Vs. best-case-scenario**: what the 'best-in-class' are doing
+
 ##### 1.2.2. A- Analyse
 - What are the levers we can pull to solve the problem?
 - Which of the 'levers' are practical vs. irrelevant?
@@ -46,6 +51,16 @@
 
 2. **Functional concern**: from study <br>![[Screenshot 2026-10-16 at 12.20.39 PM.png|700]]
 
+- **Analysing the drivers**: 
+	- Gather hypotheses (typically educated guesses on first round)
+	- Prove/disprove hypotheses
+	- Among 'proven' hypotheses, assess which ones are realistic to tackle
+
+- **Mutually exclusive, completely exhaustive (MECE)**
+	- **Mutually exclusive**: if categories mix are subsets of each other, it gets confusing later (which solution to apply to which group? etc)
+	- **Completely exhaustive**: capture all buckets and have a holistic solution
+![[Screenshot 2026-10-16 at 2.38.27 PM.png|500]]
+
 ##### 1.2.3. L - List Solutions
 - Think of solutions to target the super-specific drivers
 
@@ -61,3 +76,17 @@
 ![[Screenshot 2026-10-16 at 1.45.43 PM.png]]
 > *(1) Conduct user education* is the most feasible solution
 
+- **RICE method**:
+	- **Reach** - how many people will the solution affect?
+	- **Impact** - how much of a pain point will the solution solve?
+	- **Confidence** - how confident are you the solution will work as intended?
+	- **Effort** - how 'easy' is the solution is to implement?
+
+- **2x2 Prioritisation graph**: <br>![[Screenshot 2026-10-16 at 2.45.43 PM.png|500]]
+	- **'2x2 + 1'** (some strategic investment):
+		- Invest in everything in top right
+		- Throw away everything in bottom left
+		- Invest in some on the bottom right bucket (long-term goodwill)
+
+![[Screenshot 2026-10-16 at 2.48.32 PM.png|700]]
+- weighted table for different criteria
