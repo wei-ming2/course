@@ -207,4 +207,10 @@ dJ_dw.subs([(w, 2)]) # substitute w as 2 = 12
 - finally: $$\begin{align*}\frac{\partial J}{\partial w}&=\frac{\partial J}{\partial c}\frac{\partial c}{\partial w} \\
   &= 2\cdot x \\
   &= -4\end{align*}$$
-	- **Back propagation**: from $J$, a series of calculation is done to backwards (change wrt to $d,a,b,c$) to find $w$; to get $\frac{\partial J}{\partial w}$ (how much $J$ change wrt $w$)
+	- **Back propagation**: calculates the gradients of the loss $J$ wrt intermediate variables $(d,a,b,c)$ and model parameters by applying the chain rule backwards through the computation graph.
+		- The resulting gradients can then by used by an optimiser to update weights and biases to reduce the loss. (Back propagation: gradient -> optimiser: reduce overall loss)
+
+- Example: to verify, when $w\uparrow0.001$ $$\begin{align*}J&=\frac{1}{2}((wx+b)-y)^2 \\
+  &=\frac{1}{2}((2.001\times-2+8)-2)^2 \\
+  &= 1.996002\approx 1.996\end{align*}$$
+	- $J\downarrow 0.004$, decrease is approximately -4 of $w$ (which is the gradient and the relationship)
