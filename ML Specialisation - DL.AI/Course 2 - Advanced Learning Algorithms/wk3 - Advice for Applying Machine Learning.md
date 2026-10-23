@@ -46,4 +46,27 @@
 - **Cross validation error**: $$J_\text{cv}(\vec{w},b)=\frac{1}{2m_\text{cv}}\left[\sum_{i=1}^{m_{\text{cv}}}\left(f_{\vec{w},b}(\vec{x}^{(i)}_\text{cv})-y^{(i)}_\text{cv}\right)^2\right]$$
 	- Essentially the same as training / test except calculated using cv set thus $J_\text{cv}$
 
-- **Step**: similarly to brute force, except the degree with the 
+| Degree | Model                           | Evaluate                       |
+| ------ | ------------------------------- | ------------------------------ |
+| 1      | $f_{\vec{w},b}(\vec{x})=w_1x+b$ | $J_\text{cv}(w^{(1)},b^{(1)})$ |
+| ...    | ...                             | ...                            |
+- Similar to *brute force*, except $J_\text{test}\to J_\text{cv}$
+	- Training with **training set**
+	- Choose the model (and tune) base on **cross validation set**
+	- Estimate generalisation error using **test set**
+
+##### 1.3.3. Feature Scaling
+- Perform feature scaling to help model converge faster (especially when input features have a wide range of values - ie: 2 to 12 million) 
+
+- **$z$-normalisation**: each value is the number of SD away from mean $$z=\frac{x-\mu}{\sigma}$$
+
+### 2. Bias and Variance
+- **Recap**: [[wk3 - Classification#3. The Problem of Overfitting]]
+
+| Bias/ Variance   | High bias | "Just right" | High variance |
+| ---------------- | --------- | ------------ | ------------- |
+| Type             | underfit  | generalise   | overfit       |
+| $J_\text{train}$ | high      | low          | low           |
+| $J_\text{cv}$    | high      | low          | high          |
+
+
