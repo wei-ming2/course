@@ -63,10 +63,44 @@
 ### 2. Bias and Variance
 - **Recap**: [[wk3 - Classification#3. The Problem of Overfitting]]
 
-| Bias/ Variance   | High bias | "Just right" | High variance |
-| ---------------- | --------- | ------------ | ------------- |
-| Type             | underfit  | generalise   | overfit       |
-| $J_\text{train}$ | high      | low          | low           |
-| $J_\text{cv}$    | high      | low          | high          |
+| Bias / Variance  | Type                         | $J_\text{train}$ | $J_\text{cv}$ |
+| ---------------- | ---------------------------- | ---------------- | ------------- |
+| High bias        | underfit<br>(low level poly) | high             | high          |
+| **"Just right"** | **generalise**<br>(middle)   | **low**          | **low**       |
+| High variance    | overfit<br>(high level poly) | low              | high          |
+- High bias and high variance: 
+	- $J_\text{train}$ will be high
+	- $J_\text{cv} >>J_\text{train}$
 
+#### 2.1. Regularisation
+- **Recap**: ![[wk3 - Classification#3.2. Cost Function with Regularisation]]
 
+- **Choosing the regularisation parameter $\lambda$**: 
+	1. Try $\lambda=0$
+	2. Find the values of $\vec{w},b$ that minimise the cost function $J$: $\underset{\vec{w},b}{\min}J(\vec{w},b)$ 
+	3. Get the optimal parameter of the model from (2): $w^{<1>},b^{<1>}$ 
+	4. Get the cross validation error of the model: $J_\text{cv}(w^{<1>},b^{<1>})$
+		- Try $\lambda=0.01$ (repeat step 1 to 4)
+		- Try $\lambda =0.02$
+		- ...
+		- Plot $J_\text{cv}(\vec{w},b)$ and $J_\text{train}(\vec{w},b)$ against $\lambda$: <br>![[Screenshot 2026-10-27 at 9.24.27 AM.png|500]]
+	5. After selecting the optimal $\lambda$ (lowest $J_\text{cv}$), find the $J_\text{test}(w^{<\text{best}>},b^{<\text{best}>})$
+
+#### 2.2. Establishing a Baseline Level of Performance
+- **Example**: speech recognition model
+	- Training error $J_\text{train}:10.8\%$
+	- Cross validation error $J_\text{cv}:14.8\%$
+	- **Human level performance**: $10.6\%$
+		- Due to background noise, poor speaker quality, etc
+		- If humans, the trainer only gets 10.6%, unlikely that model is any better
+
+- To judge if a training error is high, to see if *training error* is much higher than *human level of performance*
+	- In the example, the model performs extremely near to *human level performance*, but further to *cross validation* (thus it is more of a variance/overfit than a bias/underfit problem)
+
+- Alternatively: performance can be measured in comparison to
+	- Competing algorithms performance
+	- Guess based on prior experience
+
+#### 2.3. Learning Curve
+- **Intuition**: $J_\text{cv}$ decreases, but $J_\text{train}$ increases with more training data <br>![[Screenshot 2026-10-27 at 11.53.39 AM.png|300]]
+	- $J_\text{train}$ increases because easier to fit perfectly for small (1,2 data point), but harder to fit perfectly through <br>![[Screenshot 2026-10-27 at 11.55.53 AM.png|300]]
