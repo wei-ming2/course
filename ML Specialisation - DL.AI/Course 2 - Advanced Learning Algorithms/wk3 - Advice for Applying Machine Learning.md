@@ -102,5 +102,25 @@
 	- Guess based on prior experience
 
 #### 2.3. Learning Curve
-- **Intuition**: $J_\text{cv}$ decreases, but $J_\text{train}$ increases with more training data <br>![[Screenshot 2026-10-27 at 11.53.39 AM.png|300]]
-	- $J_\text{train}$ increases because easier to fit perfectly for small (1,2 data point), but harder to fit perfectly through <br>![[Screenshot 2026-10-27 at 11.55.53 AM.png|300]]
+- **Intuition**: $J_\text{cv}$ decreases, but $J_\text{train}$ increases with more training data <br>![[Screenshot 2026-10-29 at 9.34.12 AM.png|300]]
+	- $J_\text{train}$ increases because it gets harder to fit everything perfectly as the number of data point increases <br>![[Screenshot 2026-10-27 at 11.55.53 AM.png|300]]
+
+- **High bias learning curve**: underfit (opposite of typical understanding) <br>![[Screenshot 2026-10-29 at 9.34.12 AM.png|300]]
+	- As training size grows, there is not that much to change, thus error flattens out after a while <br>![[Screenshot 2026-10-28 at 6.22.23 PM.png|100]]
+	- $J_\text{cv}$ comes down but also flattens (because there is only so much that can be captured)
+
+- **High variance learning curve**: overfit <br>![[Screenshot 2026-10-29 at 9.37.32 AM.png|300]]
+	- More training data is likely to help reduce error <br>![[Screenshot 2026-10-29 at 9.38.27 AM.png|100]]
+
+#### 2.4. Deciding what to try next
+- **Continuation of**: ![[#1.1. Debugging a Learning Algorithm]]
+	- The 6 items essentially tries to fix either a *high variance* or a *high bias* problem
+
+| Method                                           | Addresses     |
+| ------------------------------------------------ | ------------- |
+| More training example                            | High variance |
+| Smaller set of feature<br>(remove $x^3,x^4,...$) | High variance |
+| Additional features                              | High variance |
+| Adding polynomial                                | High bias     |
+| Increasing $\lambda$                             | High variance |
+| Decreasing $\lambda$                             | High bias     |
