@@ -63,11 +63,11 @@
 ### 2. Bias and Variance
 - **Recap**: [[wk3 - Classification#3. The Problem of Overfitting]]
 
-| Bias / Variance  | Type                         | $J_\text{train}$ | $J_\text{cv}$ |
-| ---------------- | ---------------------------- | ---------------- | ------------- |
-| High bias        | underfit<br>(low level poly) | high             | high          |
-| **"Just right"** | **generalise**<br>(middle)   | **low**          | **low**       |
-| High variance    | overfit<br>(high level poly) | low              | high          |
+| Bias / Variance  | Type                                 | $J_\text{train}$ | $J_\text{cv}$ |
+| ---------------- | ------------------------------------ | ---------------- | ------------- |
+| High bias        | underfit<br>$w_1x+b$                 | high             | high          |
+| **"Just right"** | **generalise**<br>(middle)           | **low**          | **low**       |
+| High variance    | overfit<br>$w_1x+w_2x^2+...w_5x^5+b$ | low              | high          |
 - High bias and high variance: 
 	- $J_\text{train}$ will be high
 	- $J_\text{cv} >>J_\text{train}$
@@ -83,7 +83,7 @@
 		- Try $\lambda=0.01$ (repeat step 1 to 4)
 		- Try $\lambda =0.02$
 		- ...
-		- Plot $J_\text{cv}(\vec{w},b)$ and $J_\text{train}(\vec{w},b)$ against $\lambda$: <br>![[Screenshot 2026-10-27 at 9.24.27 AM.png|500]]
+		- Plot $J_\text{cv}(\vec{w},b)$ and $J_\text{train}(\vec{w},b)$ against $\lambda$: <br>![[Screenshot 2026-10-27 at 9.24.27 AM.png|300]]
 	5. After selecting the optimal $\lambda$ (lowest $J_\text{cv}$), find the $J_\text{test}(w^{<\text{best}>},b^{<\text{best}>})$
 
 #### 2.2. Establishing a Baseline Level of Performance
@@ -120,7 +120,41 @@
 | ------------------------------------------------ | ------------- |
 | More training example                            | High variance |
 | Smaller set of feature<br>(remove $x^3,x^4,...$) | High variance |
-| Additional features                              | High variance |
+| Additional features<br>(add $x^2,x^3,...$)       | High bias     |
 | Adding polynomial                                | High bias     |
 | Increasing $\lambda$                             | High variance |
 | Decreasing $\lambda$                             | High bias     |
+
+#### 2.5. Bias/Variance and Neural Network
+- A linear model have to balance the error when choosing between degree of polynomial (high variance) and regularisation (high bias)
+
+- Large NN: low bias machine
+- **Tips for getting an accurate model using NN**: <br>![[Screenshot 2026-10-29 at 10.36.50 AM.png|500]]
+
+- Typically speaking a large NN will do better than a small NN
+- However, to prevent overfitting, regularisation can be applied: 
+```python
+layer_1 = Dense(units=25, activation="relu", kernel_regularizer=L2(0.01))
+```
+
+### 3. Machine Learning Development Process
+#### 3.1. Iterative Loop of ML Development
+- **Steps**: <br>![[Screenshot 2026-10-29 at 10.54.37 AM.png|300]]
+
+- **Example**: email spam classification
+	- Building a spam classifier: supervised algorithm
+		- $\vec{x}$: features of email
+		- $y$: verdict of spam (1) or not spam (0)
+		- Features: list the top 10,000 words to compute $x_1,x_2,...,x_{10,000}$ $$\vec{x}=\begin{bmatrix}
+		  0\leftarrow \text{a}\\ 
+		  1\leftarrow \text{andrew}\\ 
+		  1\leftarrow \text{buy}\\ 
+		  0\leftarrow \text{deal}\\
+		  \vdots\end{bmatrix}$$
+	- **To reduce error rate**:
+		- Collect more data
+		- Develop sophisticated features based on email routing (from email header)
+		- Define sophisticated features (ie: "discount" and "discounting" treated as the same word)
+		- Design algorithms to detect misspellings (ie: w4tches, m0rtgage)
+
+#### 3.2. Error Analysis
